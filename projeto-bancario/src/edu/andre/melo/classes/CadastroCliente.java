@@ -1,5 +1,6 @@
 package edu.andre.melo.classes;
 
+import java.text.DecimalFormat;
 import java.util.Objects;
 import java.util.Scanner;
 public class CadastroCliente extends Cliente {
@@ -33,6 +34,7 @@ public class CadastroCliente extends Cliente {
     public void consultarCadastroCliente() {
 
         Scanner scanner = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("#,###.00");
         String nome;
 
         System.out.print("\n");
@@ -40,16 +42,17 @@ public class CadastroCliente extends Cliente {
         System.out.print("\n");
         System.out.print("Digite o nome do Cliente: ");
         nome = scanner.nextLine();
-        if (!Objects.equals(nome, nomeCliente)) {
+        if (!Objects.   equals(nome, nomeCliente)) {
             System.err.println("Nome do Cliente não Cadastrado!");
-            System.err.println("Digite o Nome Completo do Cliente!");
+            System.err.println("Digite o Nome Completo do Cliente e Cadastre o Cliente!");
             System.out.print("\n");
         } else{
+            System.out.print("\n");
             System.out.println("Nome do Cliente: " +nomeCliente);
             System.out.println("Numero RG: " +numeroRG);
             System.out.println("Numero CPF: " +numeroCPF);
             System.out.println("Endereço: " +endereco);
-            System.out.println("Renda Mensal: " +renda);
+            System.out.println("Renda Mensal: R$ " +df.format(renda));
         }
     }
 }

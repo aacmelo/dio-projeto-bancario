@@ -1,5 +1,6 @@
 package edu.andre.melo.classes;
 
+import java.text.DecimalFormat;
 import java.util.Objects;
 import java.util.Scanner;
 public class ContaCorrente extends Conta {
@@ -37,6 +38,7 @@ public class ContaCorrente extends Conta {
     public void consultarContaCorrente() {
 
         Scanner scanner = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("#,###.00");
         String clienteNome;
 
         System.out.print("\n");
@@ -46,14 +48,15 @@ public class ContaCorrente extends Conta {
         clienteNome = scanner.nextLine();
         if (!Objects.equals(clienteNome, nomeCliente)) {
             System.err.println("Nome do Cliente não cadastrado!");
-            System.err.println("Digite o Nome Completo do Cliente!");
+            System.err.println("Digite o Nome Completo do Cliente e Cadastre a Conta Corrente!");
             System.out.print("\n");
         } else {
+            System.out.print("\n");
             System.out.println("Nome: " + nomeCliente);
             System.out.println("Conta: " + tipoConta);
             System.out.println("Numero da Agencia: " + numeroAgencia);
             System.out.println("Numero da Conta: " + numeroConta);
-            System.out.println("Saldo: " + saldo);
+            System.out.println("Saldo: R$ " +df.format(saldo));
         }
     }
     public void sacarContaCorrente() {
@@ -93,6 +96,8 @@ public class ContaCorrente extends Conta {
                 saldoConta = saldo - valor;
                 saldo = saldoConta;
             }
+            System.out.print("\n");
+            System.out.println("Saque Realizado com Sucesso!");
         }
     }
     public void depositarContaCorrente(){
@@ -125,11 +130,14 @@ public class ContaCorrente extends Conta {
             saldoConta = saldo + valor;
             saldo = saldoConta;
             }
+            System.out.print("\n");
+            System.out.println("Deposito Realizado com Sucesso!");
         }
         public void consultarSaldoContaCorrente(){
 
             int agencia, conta, senha;
             Scanner scanner = new Scanner(System.in);
+            DecimalFormat df = new DecimalFormat("#,000.00");
 
             System.out.print("\n");
             System.out.println("====================Saldo da Conta Corrente=================");
@@ -151,7 +159,7 @@ public class ContaCorrente extends Conta {
                 System.out.println("\n");
             }else{
                 System.out.print("\n");
-                System.out.println("Seu Saldo Atual é: "+saldo);
+                System.out.println("Seu Saldo Atual é: R$ "+df.format(saldo));
             }
         }
     }

@@ -1,5 +1,6 @@
 package edu.andre.melo.classes;
 
+import java.text.DecimalFormat;
 import java.util.Objects;
 import java.util.Scanner;
 public class ContaPoupanca extends Conta{
@@ -37,6 +38,7 @@ public class ContaPoupanca extends Conta{
         public void consultarContaPoupanca(){
 
         Scanner scanner = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("#,###.00");
         String clienteNome;
 
             System.out.print("\n");
@@ -46,14 +48,15 @@ public class ContaPoupanca extends Conta{
             clienteNome = scanner.nextLine();
             if(!Objects.equals(clienteNome, nomeCliente)){
                 System.err.println("Nome do Cliente não cadastrado!");
-                System.err.println("Digite o Nome Completo do Cliente!");
+                System.err.println("Digite o Nome Completo do Cliente e Cadastre a Conta Poupança!");
                 System.out.print("\n");
             }else{
+                System.out.print("\n");
                 System.out.println("Nome: "+nomeCliente);
                 System.out.println("Conta: "+tipoConta);
                 System.out.println("Agencia: "+numeroAgencia);
                 System.out.println("Conta: "+numeroConta);
-                System.out.println("Saldo: "+saldo);
+                System.out.println("Saldo: R$ "+df.format(saldo));
             }
         }
     public void sacarContaPoupanca() {
@@ -93,6 +96,8 @@ public class ContaPoupanca extends Conta{
                 saldoConta = saldo - valor;
                 saldo = saldoConta;
             }
+            System.out.print("\n");
+            System.out.println("Saque Realizado com Sucesso!");
         }
     }
     public void depositarContaPoupanca(){
@@ -124,12 +129,15 @@ public class ContaPoupanca extends Conta{
             valor = scanner.nextDouble();
             saldoConta = saldo + valor;
             saldo = saldoConta;
+            System.out.print("\n");
+            System.out.println("Deposito Realizado com Sucesso!");
         }
     }
     public void consultarSaldoContaPoupanca(){
 
         int agencia, conta, senha;
         Scanner scanner = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("#,###.00");
 
         System.out.print("\n");
         System.out.println("====================Saldo da Conta Poupança=================");
@@ -151,7 +159,7 @@ public class ContaPoupanca extends Conta{
             System.out.println("\n");
         }else{
             System.out.print("\n");
-            System.out.println("Seu Saldo Atual é: "+saldo);
+            System.out.println("Seu Saldo Atual é: R$ "+df.format(saldo));
         }
     }
 }
