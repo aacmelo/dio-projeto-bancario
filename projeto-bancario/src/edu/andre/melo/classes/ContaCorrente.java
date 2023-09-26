@@ -48,16 +48,17 @@ public class ContaCorrente extends Conta {
             System.out.print("\n");
         } else {
             System.out.print("\n");
-            System.out.println("Nome: " + nomeCliente);
-            System.out.println("Conta: " + tipoConta);
-            System.out.println("Numero da Agencia: " + numeroAgencia);
-            System.out.println("Numero da Conta: " + numeroConta);
+            System.out.println("Nome: " +nomeCliente);
+            System.out.println("Conta: " +tipoConta);
+            System.out.println("Numero da Agencia: " +numeroAgencia);
+            System.out.println("Numero da Conta: " +numeroConta);
         }
     }
     public void sacarContaCorrente() {
 
         int agencia, conta, senha;
         double valor, saldoConta;
+        ContaCorrente contaCorrente = new ContaCorrente();
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("\n");
@@ -90,6 +91,7 @@ public class ContaCorrente extends Conta {
             } else {
                 saldoConta = saldo - valor;
                 saldo = saldoConta;
+                contaCorrente.setSaldo(saldo);
             }
             System.out.print("\n");
             System.out.println("Saque Realizado com Sucesso!");
@@ -99,6 +101,7 @@ public class ContaCorrente extends Conta {
 
         int agencia, conta, senha;
         double valor, saldoConta;
+        ContaCorrente contaCorrente = new ContaCorrente();
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("\n");
@@ -124,7 +127,8 @@ public class ContaCorrente extends Conta {
             valor = scanner.nextDouble();
             saldoConta = saldo + valor;
             saldo = saldoConta;
-            }
+            contaCorrente.setSaldo(saldo);
+        }
             System.out.print("\n");
             System.out.println("Deposito Realizado com Sucesso!");
         }
