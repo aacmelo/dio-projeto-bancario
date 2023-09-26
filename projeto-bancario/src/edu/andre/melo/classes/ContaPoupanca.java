@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class ContaPoupanca extends Conta{
     String nomeCliente, tipoConta;
     int numeroAgencia = 0, numeroConta = 0, senhaConta = 0;
-    double saldo;
+    double saldo = 0;
     public void cadastrarContaPoupanca(){
 
         Conta contaPoupanca = new ContaPoupanca();
@@ -25,20 +25,16 @@ public class ContaPoupanca extends Conta{
         contaPoupanca.setConta(scanner.nextInt());
         System.out.print("Senha do Cliente: ");
         contaPoupanca.setSenha(scanner.nextInt());
-        System.out.print("Digite o Saldo da Conta: ");
-        contaPoupanca.setSaldo(scanner.nextDouble());
 
         nomeCliente = contaPoupanca.getCliente();
         tipoConta = contaPoupanca.getTipoConta();
         numeroAgencia = contaPoupanca.getAgencia();
         numeroConta = contaPoupanca.getConta();
         senhaConta = contaPoupanca.getSenha();
-        saldo = contaPoupanca.getSaldo();
     }
         public void consultarContaPoupanca(){
 
         Scanner scanner = new Scanner(System.in);
-        DecimalFormat df = new DecimalFormat("#,###.00");
         String clienteNome;
 
             System.out.print("\n");
@@ -56,7 +52,6 @@ public class ContaPoupanca extends Conta{
                 System.out.println("Conta: "+tipoConta);
                 System.out.println("Agencia: "+numeroAgencia);
                 System.out.println("Conta: "+numeroConta);
-                System.out.println("Saldo: R$ "+df.format(saldo));
             }
         }
     public void sacarContaPoupanca() {

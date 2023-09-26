@@ -25,20 +25,16 @@ public class ContaCorrente extends Conta {
         contaCorrente.setConta(scanner.nextInt());
         System.out.print("Senha do Cliente: ");
         contaCorrente.setSenha(scanner.nextInt());
-        System.out.print("Digite o Saldo da Conta: ");
-        contaCorrente.setSaldo(scanner.nextDouble());
 
         nomeCliente = contaCorrente.getCliente();
         tipoConta = contaCorrente.getTipoConta();
         numeroAgencia = contaCorrente.getAgencia();
         numeroConta = contaCorrente.getConta();
         senhaConta = contaCorrente.getSenha();
-        saldo = contaCorrente.getSaldo();
     }
     public void consultarContaCorrente() {
 
         Scanner scanner = new Scanner(System.in);
-        DecimalFormat df = new DecimalFormat("#,###.00");
         String clienteNome;
 
         System.out.print("\n");
@@ -56,7 +52,6 @@ public class ContaCorrente extends Conta {
             System.out.println("Conta: " + tipoConta);
             System.out.println("Numero da Agencia: " + numeroAgencia);
             System.out.println("Numero da Conta: " + numeroConta);
-            System.out.println("Saldo: R$ " +df.format(saldo));
         }
     }
     public void sacarContaCorrente() {
